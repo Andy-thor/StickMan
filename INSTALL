@@ -1,0 +1,12 @@
+## Dependencies:
+	python (>= 2.7)
+	python-gtk2 (>= 2.24)
+	python-gobject
+	libgtk2.0-0
+	libgtk-2-dev
+	
+## Run without install it:
+	python stickman.py -r
+	
+## Installation:
+	sudo python setup.py install

@@ -1,0 +1,42 @@
+{
+	"base" : {
+		"n_frames" : 5,
+		"next_actions" : ["go", "call"]
+	},
+	"go" : {
+		"n_frames" : 1,
+		"next_actions" : ["base", "run", "walk", "knock", "call", "bend_down"]
+	},
+	"run" : {
+		"n_frames" : 6,
+		"next_actions" : ["base", "run", "walk", "stop", "knock", "call", "bend_down"]
+	},
+	"walk" : {
+		"n_frames" : 4,
+		"next_actions" : ["base", "run", "walk", "knock", "call", "bend_down"]
+	},
+	"stop" : {
+		"n_frames" : 11,
+		"next_actions" : ["base", "walk", "run", "knock", "call", "bend_down"]
+	},
+	"call" : {
+		"n_frames" : 13,
+		"next_actions" : ["base", "walk", "run", "knock", "bend_down"]
+	},
+	"knock" : {
+		"n_frames" : 8,
+		"next_actions" : ["base", "run", "walk", "knock", "bend_down"]
+	},
+	"bend_down" : {
+		"n_frames" : 10,
+		"next_actions" : ["sleep"]
+	},
+	"sleep" : {
+		"n_frames" : 5,
+		"next_actions" : ["sleep", "lift"]
+	},
+	"lift" : {
+		"n_frames" : 8,
+		"next_actions" : ["base", "run", "walk", "knock", "call", "bend_down"]
+	}
+}
