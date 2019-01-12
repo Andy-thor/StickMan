@@ -7,4 +7,4 @@ It is a toon being interacting on your desktop.
 
 <br><br>
 ## Links
-* [StickMan homepage](https://Andy-thor.github.io/stickman)
+* [StickMan homepage](https://andy-thor.github.io/StickMan)
