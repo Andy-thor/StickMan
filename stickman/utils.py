@@ -17,26 +17,34 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-import gtk, os
+import os
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk, Gdk, GdkPixbuf
 from locals import *
 
 def load_new_pixbuf(toon):
-	orientation = "-{}".format(toon.orientation) if (toon.current_action != "base") else ""
-	# Load the pixbuf
-	pixbuf = load_pixbuf_from_file(DATADIR + DIR_IMAGES + APP_NAME.lower() + "-{}{}{}.png".format(
-									toon.current_action, orientation, toon.current_frame))
-	return pixbuf
+    orientation = "-{}".format(toon.orientation) if (toon.current_action != "base") else ""
+    # Load the pixbuf
+    pixbuf = load_pixbuf_from_file(DATADIR + DIR_IMAGES + APP_NAME.lower() + "-{}{}{}.png".format(
+                                    toon.current_action, orientation, toon.current_frame))
+    return pixbuf
+
 
 def load_pixbuf_from_file(path):
-	pixbuf = gtk.gdk.pixbuf_new_from_file(path)
-	return pixbuf
+    pixbuf = GdkPixbuf.Pixbuf.new_from_file(path)
+    return pixbuf
+
 
 def get_resolution_width():
-	return get_resolution()[0]
+    return Gdk.Screen.get_default().get_width()
+
 
 def get_resolution_height():
-	return get_resolution()[1]
+    return Gdk.Screen.get_default().get_height()
+
 
 def get_resolution():
-	width, height = gtk.gdk.screen_width(), gtk.gdk.screen_height()
-	return (width, height)
+    width = get_resolution_width()
+    height = get_resolution_height()
+    return (width, height)

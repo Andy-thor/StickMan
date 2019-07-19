@@ -18,40 +18,42 @@
 #
 
 import sys, json
-import gtk
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
 from random import randrange
 
 from locals import *
 
 orientations = ['right', 'left']
 try:
-	filename = DATADIR + "src/data_actions.json"
-	with open(filename, "r") as file_json:
-		data = file_json.read()
+    filename = DATADIR + "src/data_actions.json"
+    with open(filename, "r") as file_json:
+        data = file_json.read()
 except IOError:
-	print("\"{}\" file does not exist".format(filename))
-	sys.exit()
+    print("\"{}\" file does not exist".format(filename))
+    sys.exit()
 else:
     all_actions = json.loads(data)
 
 def set_new_action(toon):
-	action = toon.current_action
-	new_action = choose_action(action)
-	new_num_frames = number_of_frames(new_action)
-	
-	# To choose the direction to move
-	if new_action == 'base':
-		toon.orientation = orientations[randrange(len(orientations))]
-	
-	# Updating toon actions
-	toon.current_action = new_action
-	toon.num_frames = new_num_frames
+    action = toon.current_action
+    new_action = choose_action(action)
+    new_num_frames = number_of_frames(new_action)
+    
+    # To choose the direction to move
+    if new_action == 'base':
+        toon.orientation = orientations[randrange(len(orientations))]
+    
+    # Updating toon actions
+    toon.current_action = new_action
+    toon.num_frames = new_num_frames
 
 def choose_action(action):
-	size_list = len(all_actions[action]["next_actions"])
-	next_action = all_actions[action]["next_actions"][randrange(size_list)]
-	return next_action
+    size_list = len(all_actions[action]["next_actions"])
+    next_action = all_actions[action]["next_actions"][randrange(size_list)]
+    return next_action
 
 def number_of_frames(action):
-	n_frames = all_actions[action]["n_frames"]
-	return n_frames
+    n_frames = all_actions[action]["n_frames"]
+    return n_frames
