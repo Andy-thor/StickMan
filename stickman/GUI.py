@@ -21,6 +21,7 @@ import sys, time
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, GObject
+import cairo
 import utils
 from locals import *
 
@@ -61,7 +62,6 @@ class Window(Gtk.Window):
         self.image.show()
         self.fixed.set_size_request(100, 100)
         self.fixed.show()
-        
         #self.shape_combine_mask(mask, 0, 0)
         self.x_pos += toon.sideways()
         self.move(self.x_pos, self.y_pos)
