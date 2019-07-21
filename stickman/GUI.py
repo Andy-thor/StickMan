@@ -34,7 +34,7 @@ class Window(Gtk.Window):
         self.set_decorated(False)
         self.connect('destroy', Gtk.main_quit)
         self.x_pos = int(utils.get_resolution_width() / 2)
-        self.y_pos = utils.get_resolution_height() - 108    # The value subtracted is to accommodate the image.
+        self.y_pos = utils.get_resolution_height() - 108 # The value subtracted is to accommodate the image.
         self.move(self.x_pos, self.y_pos)
         self.image = Gtk.Image()
         self.fixed = Gtk.Fixed()
@@ -74,11 +74,11 @@ class Window(Gtk.Window):
             event.button = 1
             menu.popup(None, None, None, None, event.button, event.time)
     
-    def clicked_item(self, arg, text):      # We don't use 'arg' in this case(Fix)
+    def clicked_item(self, arg, text): # We don't use 'arg' in this case(Fix)
         if text == "About...":
-            authors = ["Andrés Segovia <andy.dev536@gmail.com>"]
+            authors = [AUTHOR]
             develop_year = 2019
-            current_year = time.strftime("%Y")  # To determine the current year
+            current_year = time.strftime("%Y") # To determine the current year
             if int(current_year) > develop_year:
                 time_lapse = "{}-{}".format(develop_year, current_year)
             else:
