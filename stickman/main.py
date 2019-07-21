@@ -87,7 +87,7 @@ def main_loop(widget, toon):
     return True
 
 # Main function
-def main(run_local = False):
+def main(run_local=False):
     if run_local is True and os.getcwd() != locals.DATADIR:
         locals.DATADIR = os.getcwd() + "/"
     stickman = Toon()

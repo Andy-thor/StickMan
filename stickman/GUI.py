@@ -76,7 +76,7 @@ class Window(Gtk.Window):
     
     def clicked_item(self, arg, text):      # We don't use 'arg' in this case(Fix)
         if text == "About...":
-            authors = ["Andrés Segovia <andres.segovia.dev@gmail.com>"]
+            authors = ["Andrés Segovia <andy.dev536@gmail.com>"]
             develop_year = 2019
             current_year = time.strftime("%Y")  # To determine the current year
             if int(current_year) > develop_year:
@@ -91,7 +91,7 @@ class Window(Gtk.Window):
             about.set_version("0.1")
             about.set_copyright("Copyright © {} {}".format(time_lapse, authors[0].split("<")[0]))
             about.set_comments("A little toon that moves on your desktop")
-            about.set_website("https://Andy-thor.github.io/stickman")
+            about.set_website("https://andy-thor.github.io/StickMan")
             about.set_website_label("Visit StickMan Homepage")
             about.set_logo(utils.load_pixbuf_from_file(DATADIR + DIR_ICONS + APP_NAME.lower() + ".png"))
             about.run()
