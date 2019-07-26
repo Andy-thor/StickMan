@@ -34,6 +34,14 @@ class Window(Gtk.Window):
         self.set_events(self.get_events() | Gdk.EventMask.BUTTON_PRESS_MASK)
         self.set_decorated(False)
         self.connect('destroy', Gtk.main_quit)
+        self.connect('draw', self.draw)
+
+        screen = self.get_screen()
+        visual = screen.get_rgba_visual()
+        if visual and screen.is_composited():
+            self.set_visual(visual)
+        self.set_app_paintable(True)
+
         self.x_pos = int(utils.get_resolution_width() / 2)
         self.y_pos = utils.get_resolution_height() - 108 # The value subtracted is to accommodate the image.
         self.move(self.x_pos, self.y_pos)
@@ -53,7 +61,14 @@ class Window(Gtk.Window):
         self.connect("button_press_event", self.on_clicked, self.menu)
         self.add(self.fixed)
         self.show()
-    
+        #self.show_all()
+
+    def draw(self, widget, context):
+        context.set_source_rgba(0, 0, 0, 0)
+        context.set_operator(cairo.OPERATOR_SOURCE)
+        context.paint()
+        context.set_operator(cairo.OPERATOR_OVER)
+
     def update(self, toon):
         pixbuf = utils.load_new_pixbuf(toon)
         #pixmap, mask = pixbuf.render_pixmap_and_mask()
