@@ -33,6 +33,7 @@ class Window(Gtk.Window):
         Gtk.Window.__init__(self, Gtk.WindowType.POPUP)
         self.set_events(self.get_events() | Gdk.EventMask.BUTTON_PRESS_MASK)
         self.set_decorated(False)
+        self.set_size_request(20, 20) # The widget size will then be adjusted to the size of the image.
         self.connect('destroy', Gtk.main_quit)
         self.connect('draw', self.draw)
 
