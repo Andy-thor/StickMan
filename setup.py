@@ -96,7 +96,7 @@ It shows a toon walking, running and doing other actions on your desktop.
 Still this in development."""
 
 setup(name="StickMan",
-    version="0.1",
+    version="0.2",
     author="Andrés Segovia",
     author_email="andy.dev536@gmail.com",
     description="A little toon that moves on your desktop",

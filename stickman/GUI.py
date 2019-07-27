@@ -103,7 +103,7 @@ class Window(Gtk.Window):
             about.set_authors(authors)
             about.set_license(LICENSE)
             about.set_program_name(APP_NAME)
-            about.set_version("0.1")
+            about.set_version("0.2")
             about.set_copyright("Copyright © {} {}".format(time_lapse, authors[0].split("<")[0]))
             about.set_comments("A little toon that moves on your desktop")
             about.set_website("https://andy-thor.github.io/StickMan")
