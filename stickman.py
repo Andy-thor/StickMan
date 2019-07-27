@@ -18,9 +18,12 @@
 #
 
 import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
+
 from stickman.main import main
 
 def show_license():
@@ -33,7 +36,7 @@ def show_license():
 
 
 def version():
-    print("StickMan 0.2\n")
+    print("StickMan 0.2.1\n")
 
 
 def usage():
@@ -43,15 +46,13 @@ def usage():
         "{}:\n"
         " -h, --help\t\t{}\n"
         " -v, --version\t\t{}\n"
-        " -l, --license\t\t{}\n"
-        " -r, --run-local\t{}\n".format(
+        " -l, --license\t\t{}\n".format(
             "Usage",
             "Show a toon in your desktop",
             "Options",
             "Display this message and exit.",
             "Print version information.",
-            "Show the type of license of this software",
-            "Run locally from source code only"))
+            "Show the type of license of this software"))
 
 
 if __name__ == "__main__":
@@ -66,9 +67,6 @@ if __name__ == "__main__":
         elif arg in ('-l', '--license'):
             show_license()
             sys.exit()
-        elif arg in ('-r', '--run-local'):
-            gui = main(run_local=True)
-            Gtk.main()
         else:
             print("Incorrect option")
             print("Try \"--help\" to see a list of available command line options")
