@@ -17,12 +17,11 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from stickman.main import main
-from gi.repository import Gtk
 import sys
 import gi
 gi.require_version('Gtk', '3.0')
-
+from gi.repository import Gtk
+from stickman.main import main
 
 def show_license():
     print(
