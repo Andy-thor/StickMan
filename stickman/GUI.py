@@ -17,13 +17,19 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-import sys, time
+import sys
+import time
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, GObject
-import cairo
-import utils
-from locals import *
+try:
+    import cairo
+    gi.require_foreign("cairo")
+except ImportError:
+    from gi.repository import cairo # pycairo
+    print("No cairo integration.")
+import stickman.utils as utils
+from stickman.locals import *
 
 # =============================
 # The Window
@@ -71,13 +77,10 @@ class Window(Gtk.Window):
 
     def update(self, toon):
         pixbuf = utils.load_new_pixbuf(toon)
-        #pixmap, mask = pixbuf.render_pixmap_and_mask()
-        #self.image.set_from_pixmap(pixmap, mask)
         self.image.set_from_pixbuf(pixbuf)
         self.image.show()
         self.fixed.set_size_request(100, 100)
         self.fixed.show()
-        #self.shape_combine_mask(mask, 0, 0)
         self.x_pos += toon.sideways()
         self.move(self.x_pos, self.y_pos)
         Gtk.Widget.show(self.image)
@@ -103,7 +106,7 @@ class Window(Gtk.Window):
             about.set_authors(authors)
             about.set_license(LICENSE)
             about.set_program_name(APP_NAME)
-            about.set_version("0.2")
+            about.set_version("0.2.1")
             about.set_copyright("Copyright © {} {}".format(time_lapse, authors[0].split("<")[0]))
             about.set_comments("A little toon that moves on your desktop")
             about.set_website("https://andy-thor.github.io/StickMan")

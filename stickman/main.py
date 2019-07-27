@@ -23,17 +23,14 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 from gi.repository import GObject
-
-import locals
-from GUI import Window
-import actions
-import utils
+from stickman import locals, actions, utils
+from stickman.GUI import Window
 # =============================
 # Toon
 # =============================
 class Toon:
     def __init__(self):
-        self.current_action = actions.all_actions.keys()[0] # -> base
+        self.current_action = tuple(actions.all_actions.keys())[0] # -> base
         self.orientation = actions.orientations[random.randrange(len(actions.orientations))]
         self.current_frame = 0  # Number to be exchanged between the Sprites
         self.num_frames = 5     # Number that compose the Sprites of the current action
@@ -90,6 +87,7 @@ def main_loop(widget, toon):
 def main(run_local=False):
     if run_local is True and os.getcwd() != locals.DATADIR:
         locals.DATADIR = os.getcwd() + "/"
+        print("DEBUG")
     stickman = Toon()
     widget = Window()
     GObject.timeout_add(locals.TIMEOUT_RATE_FRAMES, main_loop, widget, stickman)

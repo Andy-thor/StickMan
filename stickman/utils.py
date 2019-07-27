@@ -21,7 +21,7 @@ import os
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, GdkPixbuf
-from locals import *
+from stickman.locals import *
 
 def load_new_pixbuf(toon):
     orientation = "-{}".format(toon.orientation) if (toon.current_action != "base") else ""
