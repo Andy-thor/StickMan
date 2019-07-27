@@ -1,12 +1,24 @@
 ## Dependencies:
-	python (>= 2.7)
-	python-gtk2 (>= 2.24)
-	python-gobject
-	libgtk2.0-0
-	libgtk-2-dev
-	
+    Ubuntu / Debian:
+        sudo apt install libgirepository1.0-dev gcc libcairo2-dev pkg-config python3-dev gir1.2-gtk-3.0
+
+    Fedora:
+        sudo dnf install gcc gobject-introspection-devel cairo-devel pkg-config python3-devel gtk3
+
+    Arch Linux:
+        sudo pacman -S python cairo pkgconf gobject-introspection gtk3
+
+    openSUSE:
+        sudo zypper install cairo-devel pkg-config python3-devel gcc gobject-introspection-devel
+
+    Other dependencies (all Distros):
+        pip3 install pycairo
+        pip3 install PyGObject
+
+
 ## Run without install it:
-	python stickman.py -r
-	
+    python stickman.py -r
+
+    
 ## Installation:
-	sudo python setup.py install
+    sudo python setup.py install

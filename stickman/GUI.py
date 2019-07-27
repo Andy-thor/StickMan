@@ -61,8 +61,7 @@ class Window(Gtk.Window):
         # When there is an event on the toon (in this case right click)
         self.connect("button_press_event", self.on_clicked, self.menu)
         self.add(self.fixed)
-        self.show()
-        #self.show_all()
+        self.show_all()
 
     def draw(self, widget, context):
         context.set_source_rgba(0, 0, 0, 0)
