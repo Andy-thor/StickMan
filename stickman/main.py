@@ -84,10 +84,7 @@ def main_loop(widget, toon):
     return True
 
 # Main function
-def main(run_local=False):
-    if run_local is True and os.getcwd() != locals.DATADIR:
-        locals.DATADIR = os.getcwd() + "/"
-        print("DEBUG")
+def main():
     stickman = Toon()
     widget = Window()
     GObject.timeout_add(locals.TIMEOUT_RATE_FRAMES, main_loop, widget, stickman)
