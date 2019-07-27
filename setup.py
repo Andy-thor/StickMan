@@ -98,7 +98,7 @@ Still this in development."""
 setup(name="StickMan",
     version="0.1",
     author="Andrés Segovia",
-    author_email="andy.dev536@gmail.com"
+    author_email="andy.dev536@gmail.com",
     description="A little toon that moves on your desktop",
     long_description=LONG_DESCRIPTION,
     url="https://andy-thor.github.io/StickMan",
