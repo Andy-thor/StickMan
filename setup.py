@@ -35,8 +35,8 @@ class CustomInstall(install):
         src_bin = os.path.join(os.getcwd(), "bin", self.distribution.get_name().lower() + ".sh")
         bin_path = os.path.join(self.prefix, "bin", self.distribution.get_name().lower())
         shutil.copy(src_bin, bin_path)
-        os.chmod(script_path, 0755)
-        os.chmod(bin_path, 0755)
+        os.chmod(script_path, 0o755)
+        os.chmod(bin_path, 0o755)
         
         # This is a script created by the Setup on /usr/local/bin/ 
         # but it is better to put it on /usr/games, because of it I delete it
