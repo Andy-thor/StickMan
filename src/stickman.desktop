@@ -1,11 +1,11 @@
 [Desktop Entry]
-Version=0.2.1
+Version=0.2.2
 Name=StickMan
 Comment[en]=It will show a toon walking, running and doing other actions on your desktop.
 Comment[es]=Mostrará a una caricatura caminando, corriendo o realizando otras acciones en tu escritorio.
 GenericName[en]=A little toon that moves on your desktop
 GenericName[es]=Un pequeño personaje que moviéndose en tu escritorio
-Exec=/usr/share/stickman/stickman.py
+Exec=python3 /usr/share/stickman/stickman.py
 Icon=stickman
 Terminal=false
 Type=Application

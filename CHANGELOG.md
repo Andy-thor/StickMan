@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.2
+- Created AboutDialog in a separate class
+- Improvised the way to create and use paths
+- Set default python3 for run application
+
 ## v0.2.1
 - Fixed local execution.
 - Fixed the access to dictionary in the 'main' module
@@ -9,5 +14,4 @@
 - Migrated to Gtk3 and Python3 
 
 ## v0.1beta
-
 - Initial release.
