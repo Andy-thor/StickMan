@@ -14,3 +14,7 @@ uninstall:
 	sudo rm -rf $(DATADIR)
 	sudo rm -rf $(DESKTOPDIR)
 	sudo rm -rf $(PIXMAPDIR)
+
+.PHONY: clean
+clean:
+	rm -rf build/
