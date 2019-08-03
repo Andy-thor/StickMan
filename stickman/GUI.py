@@ -94,26 +94,30 @@ class Window(Gtk.Window):
     
     def clicked_item(self, arg, text): # We don't use 'arg' in this case(Fix)
         if text == "About...":
-            authors = [AUTHOR]
-            develop_year = 2019
-            current_year = time.strftime("%Y") # To determine the current year
-            if int(current_year) > develop_year:
-                time_lapse = "{}-{}".format(develop_year, current_year)
-            else:
-                time_lapse = str(develop_year)
-            
-            about = Gtk.AboutDialog()
-            about.set_authors(authors)
-            about.set_license(LICENSE)
-            about.set_program_name(APP_NAME)
-            about.set_version("0.2.1")
-            about.set_copyright("Copyright © {} {}".format(time_lapse, authors[0].split("<")[0]))
-            about.set_comments("A little toon that moves on your desktop")
-            about.set_website("https://andy-thor.github.io/StickMan")
-            about.set_website_label("Visit StickMan Homepage")
-            about.set_logo(utils.load_pixbuf_from_file(DATADIR + DIR_ICONS + APP_NAME.lower() + ".png"))
+            about = About(self)
             about.run()
             about.destroy()
         else:   # Exit
             Gtk.main_quit()
             sys.exit()
+
+class About(Gtk.AboutDialog):
+    def __init__(self, parent):
+        Gtk.AboutDialog.__init__(self, transient_for=parent, modal=True)
+        authors = [AUTHOR]
+        develop_year = 2019
+        current_year = time.strftime("%Y")
+        if int(current_year) > develop_year:
+            time_lapse = "{}-{}".format(develop_year, current_year)
+        else:
+            time_lapse = str(develop_year)
+        
+        self.set_authors(authors)
+        self.set_license(LICENSE)
+        self.set_program_name(APP_NAME)
+        self.set_version("0.2.1")
+        self.set_copyright("Copyright © {} {}".format(time_lapse, authors[0].split("<")[0]))
+        self.set_comments("A little toon that moves on your desktop")
+        self.set_website("https://andy-thor.github.io/StickMan")
+        self.set_website_label("Visit StickMan Homepage")
+        self.set_logo(utils.load_pixbuf_from_file(DATADIR + DIR_ICONS + APP_NAME.lower() + ".png"))
