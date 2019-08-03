@@ -38,10 +38,10 @@ class CustomInstall(install):
         os.chmod(script_path, 0o755)
         os.chmod(bin_path, 0o755)
         
-        # This is a script created by the Setup on /usr/local/bin/ 
-        # but it is better to put it on /usr/games, because of it I delete it
-        path_rmv = os.path.join(self.prefix, "local", 
-                                "bin", self.distribution.get_name().lower() + ".py")
+        # This is a script created by the Setup on /usr/local/bin/
+        # We'll remove it.
+        path_rmv = os.path.join(self.prefix, "local", "bin", 
+                                self.distribution.get_name().lower() + ".py")
         os.remove(path_rmv)
         
         # Put the icon path, and save the .desktop file where it should be
@@ -53,9 +53,9 @@ class CustomInstall(install):
         
         # This put the 'src' folder where it should be, in the folder project
         if not os.path.exists(os.path.join(self._custom_data_dir, 'src', 'icons')):
-            os.makedirs(self._custom_data_dir + "/src/icons")
+            os.makedirs(os.path.join(self._custom_data_dir, 'src', 'icons'))
         if not os.path.exists(os.path.join(self._custom_data_dir, 'src', 'images')):
-            os.makedirs(self._custom_data_dir + "/src/images")
+            os.makedirs(os.path.join(self._custom_data_dir, 'src', 'images'))
         
         shutil.copy(src_icon, os.path.join(self._custom_data_dir, 'src', 'icons'))
         images = os.listdir(os.path.join(os.getcwd(), 'src', 'images'))
