@@ -16,8 +16,9 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-
-import sys, json
+import os
+import sys
+import json
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
@@ -26,11 +27,12 @@ from stickman.locals import *
 
 orientations = ['right', 'left']
 try:
-    filename = DATADIR + "src/data_actions.json"
-    with open(filename, "r") as file_json:
+    file_name = "data_actions.json"
+    path_file = os.path.join(DATADIR, 'src', file_name)
+    with open(path_file, "r") as file_json:
         data = file_json.read()
 except IOError:
-    print("\"{}\" file does not exist".format(filename))
+    print(f"\033[31m'{file_name}' file does not exist\033[0m")
     sys.exit()
 else:
     all_actions = json.loads(data)
