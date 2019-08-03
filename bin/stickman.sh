@@ -1,2 +1,2 @@
 #!/bin/sh
-python /usr/share/stickman/stickman.py
+python3 /usr/share/stickman/stickman.py

@@ -26,8 +26,8 @@ from stickman.locals import *
 def load_new_pixbuf(toon):
     orientation = "-{}".format(toon.orientation) if (toon.current_action != "base") else ""
     # Load the pixbuf
-    pixbuf = load_pixbuf_from_file(DATADIR + DIR_IMAGES + APP_NAME.lower() + "-{}{}{}.png".format(
-                                    toon.current_action, orientation, toon.current_frame))
+    pixbuf = load_pixbuf_from_file(os.path.join(DATADIR, DIR_IMAGES, APP_NAME.lower() +
+                                                f"-{toon.current_action}{orientation}{toon.current_frame}.png"))
     return pixbuf
 
 

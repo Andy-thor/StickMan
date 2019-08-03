@@ -18,6 +18,7 @@
 #
 
 import sys
+import os
 import time
 import gi
 gi.require_version('Gtk', '3.0')
@@ -58,11 +59,11 @@ class Window(Gtk.Window):
         
         self.menu = Gtk.Menu()
         lbl_menu_item = ["About...", "Exit"]
-        for i in range(2):
-            menu_items = Gtk.MenuItem(lbl_menu_item[i])
+        for label in lbl_menu_item:
+            menu_items = Gtk.MenuItem(label)
             self.menu.append(menu_items)
             # When there is an event on the MenuItem (in this case left click)
-            menu_items.connect("activate", self.clicked_item, lbl_menu_item[i])
+            menu_items.connect("activate", self.clicked_item, label)
             menu_items.show()
         # When there is an event on the toon (in this case right click)
         self.connect("button_press_event", self.on_clicked, self.menu)
@@ -94,26 +95,28 @@ class Window(Gtk.Window):
     
     def clicked_item(self, arg, text): # We don't use 'arg' in this case(Fix)
         if text == "About...":
-            authors = [AUTHOR]
-            develop_year = 2019
-            current_year = time.strftime("%Y") # To determine the current year
-            if int(current_year) > develop_year:
-                time_lapse = "{}-{}".format(develop_year, current_year)
-            else:
-                time_lapse = str(develop_year)
-            
-            about = Gtk.AboutDialog()
-            about.set_authors(authors)
-            about.set_license(LICENSE)
-            about.set_program_name(APP_NAME)
-            about.set_version("0.2.1")
-            about.set_copyright("Copyright © {} {}".format(time_lapse, authors[0].split("<")[0]))
-            about.set_comments("A little toon that moves on your desktop")
-            about.set_website("https://andy-thor.github.io/StickMan")
-            about.set_website_label("Visit StickMan Homepage")
-            about.set_logo(utils.load_pixbuf_from_file(DATADIR + DIR_ICONS + APP_NAME.lower() + ".png"))
+            about = About(self)
             about.run()
             about.destroy()
-        else:   # Exit
+        else: # Exit
             Gtk.main_quit()
             sys.exit()
+
+class About(Gtk.AboutDialog):
+    def __init__(self, parent):
+        Gtk.AboutDialog.__init__(self, transient_for=parent, modal=True)
+        authors = [AUTHOR]
+        develop_year = 2019
+        current_year = time.strftime("%Y")
+        time_lapse = develop_year # -> For example: 2019-2020
+        if int(current_year) > develop_year:
+            time_lapse = f"{develop_year}-{current_year}"
+        self.set_authors(authors)
+        self.set_license(LICENSE)
+        self.set_program_name(APP_NAME)
+        self.set_version("0.2.1")
+        self.set_copyright(f"Copyright © {time_lapse} {authors[0].split('<')[0]}")
+        self.set_comments("A little toon that moves on your desktop")
+        self.set_website("https://andy-thor.github.io/StickMan")
+        self.set_website_label("Visit StickMan Homepage")
+        self.set_logo(utils.load_pixbuf_from_file(os.path.join(DATADIR, DIR_ICONS, APP_NAME.lower() + ".png")))
