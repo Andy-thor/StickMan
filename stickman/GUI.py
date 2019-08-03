@@ -107,16 +107,14 @@ class About(Gtk.AboutDialog):
         authors = [AUTHOR]
         develop_year = 2019
         current_year = time.strftime("%Y")
+        time_lapse = develop_year # -> For example: 2019-2020
         if int(current_year) > develop_year:
-            time_lapse = "{}-{}".format(develop_year, current_year)
-        else:
-            time_lapse = str(develop_year)
-        
+            time_lapse = f"{develop_year}-{current_year}"
         self.set_authors(authors)
         self.set_license(LICENSE)
         self.set_program_name(APP_NAME)
         self.set_version("0.2.1")
-        self.set_copyright("Copyright © {} {}".format(time_lapse, authors[0].split("<")[0]))
+        self.set_copyright(f"Copyright © {time_lapse} {authors[0].split("<")[0]}")
         self.set_comments("A little toon that moves on your desktop")
         self.set_website("https://andy-thor.github.io/StickMan")
         self.set_website_label("Visit StickMan Homepage")
