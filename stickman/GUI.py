@@ -59,11 +59,11 @@ class Window(Gtk.Window):
         
         self.menu = Gtk.Menu()
         lbl_menu_item = ["About...", "Exit"]
-        for i in range(2):
-            menu_items = Gtk.MenuItem(lbl_menu_item[i])
+        for label in lbl_menu_item:
+            menu_items = Gtk.MenuItem(label)
             self.menu.append(menu_items)
             # When there is an event on the MenuItem (in this case left click)
-            menu_items.connect("activate", self.clicked_item, lbl_menu_item[i])
+            menu_items.connect("activate", self.clicked_item, label)
             menu_items.show()
         # When there is an event on the toon (in this case right click)
         self.connect("button_press_event", self.on_clicked, self.menu)
