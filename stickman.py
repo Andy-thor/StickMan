@@ -36,7 +36,7 @@ def show_license():
 
 
 def version():
-    print("StickMan 0.2.2\n")
+    print("StickMan 0.2.3\n")
 
 
 def usage():

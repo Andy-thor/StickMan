@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.3
+- Added a Makefile file for a easy installation. 
+
 ## v0.2.2
 - Created AboutDialog in a separate class
 - Improvised the way to create and use paths

@@ -114,7 +114,7 @@ class About(Gtk.AboutDialog):
         self.set_authors(authors)
         self.set_license(LICENSE)
         self.set_program_name(APP_NAME)
-        self.set_version("0.2.2")
+        self.set_version("0.2.3")
         self.set_copyright(f"Copyright © {time_lapse} {authors[0].split('<')[0]}")
         self.set_comments("A little toon that moves on your desktop")
         self.set_website("https://andy-thor.github.io/StickMan")
