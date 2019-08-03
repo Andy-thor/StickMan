@@ -20,13 +20,11 @@
 import os
 
 APP_NAME = "StickMan"
-run_local = os.path.join("/", "")
+AUTHOR = 'Andrés Segovia <andy.dev536@gmail.com>'
 DATADIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/')
-#DATADIR = os.path.join("/", "usr", "share", APP_NAME.lower()) + "/"
 DIR_IMAGES = 'src/images/'
 DIR_ICONS = 'src/icons/'
-AUTHOR = 'Andrés Segovia <andy.dev536@gmail.com>'
-TIMEOUT_RATE_FRAMES = 50 # 1 frame/100ms -> 10 fps
+TIMEOUT_RATE_FRAMES = 50 # 1 frame/50ms -> 20 fps
 LICENSE = """
 StickMan
 Copyright © 2019 Andrés Segovia

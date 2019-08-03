@@ -18,6 +18,7 @@
 #
 
 import sys
+import os
 import time
 import gi
 gi.require_version('Gtk', '3.0')
@@ -97,7 +98,7 @@ class Window(Gtk.Window):
             about = About(self)
             about.run()
             about.destroy()
-        else:   # Exit
+        else: # Exit
             Gtk.main_quit()
             sys.exit()
 
@@ -114,8 +115,8 @@ class About(Gtk.AboutDialog):
         self.set_license(LICENSE)
         self.set_program_name(APP_NAME)
         self.set_version("0.2.1")
-        self.set_copyright(f"Copyright © {time_lapse} {authors[0].split("<")[0]}")
+        self.set_copyright(f"Copyright © {time_lapse} {authors[0].split('<')[0]}")
         self.set_comments("A little toon that moves on your desktop")
         self.set_website("https://andy-thor.github.io/StickMan")
         self.set_website_label("Visit StickMan Homepage")
-        self.set_logo(utils.load_pixbuf_from_file(DATADIR + DIR_ICONS + APP_NAME.lower() + ".png"))
+        self.set_logo(utils.load_pixbuf_from_file(os.path.join(DATADIR, DIR_ICONS, APP_NAME.lower() + ".png")))
