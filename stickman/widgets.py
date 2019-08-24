@@ -102,6 +102,7 @@ class Window(Gtk.Window):
             Gtk.main_quit()
             sys.exit()
 
+
 class About(Gtk.AboutDialog):
     def __init__(self, parent):
         Gtk.AboutDialog.__init__(self, transient_for=parent, modal=True)

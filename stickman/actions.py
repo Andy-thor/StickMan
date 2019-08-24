@@ -23,7 +23,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 from random import randrange
-from stickman.locals_constants import *
+from stickman.locals_constants import DATADIR
 
 orientations = ['right', 'left']
 try:
