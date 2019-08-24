@@ -30,7 +30,7 @@ except ImportError:
     from gi.repository import cairo # pycairo
     print("No cairo integration.")
 import stickman.utils as utils
-from stickman.locals import *
+from stickman.locals_constants import *
 
 # =============================
 # The Window

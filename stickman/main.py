@@ -22,7 +22,7 @@ import sys
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import GObject
-from stickman import locals, actions, utils
+from stickman import locals_constants, actions, utils
 from stickman.widgets import Window
 # =============================
 # Toon
@@ -86,5 +86,5 @@ def main_loop(widget, toon):
 def main():
     stickman = Toon()
     widget = Window()
-    GObject.timeout_add(locals.TIMEOUT_RATE_FRAMES, main_loop, widget, stickman)
+    GObject.timeout_add(locals_constants.TIMEOUT_RATE_FRAMES, main_loop, widget, stickman)
     return 0
