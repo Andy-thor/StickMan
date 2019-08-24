@@ -25,6 +25,7 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
 from stickman.main import main
+from stickman.locals_constants import VERSION
 
 def show_license():
     print(
@@ -36,7 +37,7 @@ def show_license():
 
 
 def version():
-    print("StickMan 0.2.3\n")
+    print(f"StickMan {VERSION}\n")
 
 
 def usage():
