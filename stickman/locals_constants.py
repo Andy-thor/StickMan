@@ -20,7 +20,7 @@
 import os
 
 APP_NAME = "StickMan"
-VERSION = "0.2.3"
+VERSION = "0.2.4"
 AUTHOR = 'Andrés Segovia <andy.dev536@gmail.com>'
 DATADIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/')
 DIR_IMAGES = 'src/images/'
