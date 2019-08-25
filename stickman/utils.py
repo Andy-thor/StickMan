@@ -27,11 +27,14 @@ from stickman.locals_constants import *
 colors = {"red": "\033[31m", "green": "\033[32m", "blue": "\033[34m", "none": "\033[0m"}
 
 
-def load_new_pixbuf(toon):
-    orientation = "-{}".format(toon.action.orientation) if (toon.action.get_name() != "base") else ""
-    # Load the pixbuf
-    pixbuf = load_pixbuf_from_file(os.path.join(DATADIR, DIR_IMAGES, APP_NAME.lower() +
-                                                f"-{toon.action.get_name()}{orientation}{toon.action.current_frame}.png"))
+def load_new_pixbuf(src_img):
+    src_path = os.path.join(DATADIR, DIR_IMAGES, APP_NAME.lower() + src_img)
+    pixbuf = load_pixbuf_from_file(src_path)
+    return pixbuf
+
+
+def load_pixbuf_from_file(path):
+    pixbuf = GdkPixbuf.Pixbuf.new_from_file(path)
     return pixbuf
 
 
@@ -46,11 +49,6 @@ def load_data_json(file_name="data_actions.json"):
         else:
             parsed_data = json.loads(data)
             return parsed_data
-
-
-def load_pixbuf_from_file(path):
-    pixbuf = GdkPixbuf.Pixbuf.new_from_file(path)
-    return pixbuf
 
 
 def get_resolution_width():

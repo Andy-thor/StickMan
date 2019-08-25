@@ -77,7 +77,12 @@ class Window(Gtk.Window):
         context.set_operator(cairo.OPERATOR_OVER)
 
     def update(self, toon):
-        pixbuf = utils.load_new_pixbuf(toon)
+        action = toon.action
+        orientation = action.get_name() != "base" and f"-{action.orientation}" or ""
+        action_name = action.get_name()
+        frame = action.current_frame
+        src_img = f"-{action_name}{orientation}{frame}.png"
+        pixbuf = utils.load_new_pixbuf(src_img)
         self.image.set_from_pixbuf(pixbuf)
         self.image.show()
         self.fixed.set_size_request(100, 100)
