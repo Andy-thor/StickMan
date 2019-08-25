@@ -82,7 +82,7 @@ class Window(Gtk.Window):
         self.image.show()
         self.fixed.set_size_request(100, 100)
         self.fixed.show()
-        self.x_pos += toon.sideways()
+        self.x_pos += toon.calculate_advance()
         self.move(self.x_pos, self.y_pos)
         Gtk.Widget.show(self.image)
         self.show()

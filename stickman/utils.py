@@ -18,17 +18,34 @@
 #
 
 import os
+import json
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, GdkPixbuf
 from stickman.locals_constants import *
 
+colors = {"red": "\033[31m", "green": "\033[32m", "blue": "\033[34m", "none": "\033[0m"}
+
+
 def load_new_pixbuf(toon):
-    orientation = "-{}".format(toon.orientation) if (toon.current_action != "base") else ""
+    orientation = "-{}".format(toon.action.orientation) if (toon.action.get_name() != "base") else ""
     # Load the pixbuf
     pixbuf = load_pixbuf_from_file(os.path.join(DATADIR, DIR_IMAGES, APP_NAME.lower() +
-                                                f"-{toon.current_action}{orientation}{toon.current_frame}.png"))
+                                                f"-{toon.action.get_name()}{orientation}{toon.action.current_frame}.png"))
     return pixbuf
+
+
+def load_data_json(file_name="data_actions.json"):
+        try:
+            path_file = os.path.join(DATADIR, 'src', file_name)
+            with open(path_file, "r") as file_json:
+                data = file_json.read()
+        except IOError:
+            print(f"{colors['red']}File '{file_name}' does not exists{colors['none']}")
+            sys.exit()
+        else:
+            parsed_data = json.loads(data)
+            return parsed_data
 
 
 def load_pixbuf_from_file(path):
