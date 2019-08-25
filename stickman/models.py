@@ -18,15 +18,6 @@
 #
 
 import random
-import gi
-gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, Gdk, GObject
-try:
-    import cairo
-    gi.require_foreign("cairo")
-except ImportError:
-    from gi.repository import cairo # pycairo
-    print("No cairo integration.")
 import stickman.utils as utils
 
 
