@@ -78,8 +78,8 @@ class Window(Gtk.Window):
 
     def update(self, toon):
         action = toon.action
-        orientation = action.get_name() != "base" and f"-{action.orientation}" or ""
         action_name = action.get_name()
+        orientation = action_name != "base" and f"-{action.orientation}" or ""
         frame = action.current_frame
         src_img = f"-{action_name}{orientation}{frame}.png"
         pixbuf = utils.load_new_pixbuf(src_img)
