@@ -30,7 +30,7 @@ class Action(object):
     def select_new_action(self, new_name=None, new_orientation=None):
         self.action_name = new_name or random.choice(self.current_action["next_actions"])
         self.current_action = self.all_actions[self.action_name]
-        if self.action_name == "base": # It will only change orientation if its current action name is 'base'.
+        if self.action_name in ["base", "run"]:
             self.orientation = new_orientation or random.choice(self.all_actions["orientations"])
         self._current_frame = 0 # Number to be exchanged between the sprites
 
