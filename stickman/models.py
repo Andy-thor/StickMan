@@ -17,9 +17,6 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-import sys
-import os
-import time
 import random
 import gi
 gi.require_version('Gtk', '3.0')
@@ -31,7 +28,6 @@ except ImportError:
     from gi.repository import cairo # pycairo
     print("No cairo integration.")
 import stickman.utils as utils
-from stickman.locals_constants import *
 
 
 class Action(object):
