@@ -30,7 +30,7 @@ except ImportError:
     from gi.repository import cairo # pycairo
     print("No cairo integration.")
 import stickman.utils as utils
-from stickman.locals import *
+from stickman.locals_constants import *
 
 # =============================
 # The Window
@@ -77,12 +77,17 @@ class Window(Gtk.Window):
         context.set_operator(cairo.OPERATOR_OVER)
 
     def update(self, toon):
-        pixbuf = utils.load_new_pixbuf(toon)
+        action = toon.action
+        action_name = action.get_name()
+        orientation = action_name != "base" and f"-{action.orientation}" or ""
+        frame = action.current_frame
+        src_img = f"-{action_name}{orientation}{frame}.png"
+        pixbuf = utils.load_new_pixbuf(src_img)
         self.image.set_from_pixbuf(pixbuf)
         self.image.show()
         self.fixed.set_size_request(100, 100)
         self.fixed.show()
-        self.x_pos += toon.sideways()
+        self.x_pos += toon.calculate_advance()
         self.move(self.x_pos, self.y_pos)
         Gtk.Widget.show(self.image)
         self.show()
@@ -102,6 +107,7 @@ class Window(Gtk.Window):
             Gtk.main_quit()
             sys.exit()
 
+
 class About(Gtk.AboutDialog):
     def __init__(self, parent):
         Gtk.AboutDialog.__init__(self, transient_for=parent, modal=True)
@@ -114,7 +120,7 @@ class About(Gtk.AboutDialog):
         self.set_authors(authors)
         self.set_license(LICENSE)
         self.set_program_name(APP_NAME)
-        self.set_version("0.2.3")
+        self.set_version(VERSION)
         self.set_copyright(f"Copyright © {time_lapse} {authors[0].split('<')[0]}")
         self.set_comments("A little toon that moves on your desktop")
         self.set_website("https://andy-thor.github.io/StickMan")

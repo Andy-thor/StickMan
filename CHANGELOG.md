@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.4
+- Created a module to contain the models.
+- Renamed module 'GUI' to 'widgets' for simplicity.
+
 ## v0.2.3
 - Added a Makefile file for a easy installation. 
 

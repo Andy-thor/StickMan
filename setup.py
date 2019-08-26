@@ -20,9 +20,10 @@
 import os
 import shutil
 import glob
-
 from distutils.core import setup
 from distutils.command.install import install
+from stickman.locals_constants import VERSION
+
 
 class CustomInstall(install):
     def run(self):
@@ -96,7 +97,7 @@ It shows a toon walking, running and doing other actions on your desktop.
 Still this in development."""
 
 setup(name="StickMan",
-    version="0.2.3",
+    version=VERSION,
     author="Andrés Segovia",
     author_email="andy.dev536@gmail.com",
     description="A little toon that moves on your desktop",

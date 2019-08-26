@@ -38,5 +38,6 @@
 	"lift" : {
 		"n_frames" : 8,
 		"next_actions" : ["base", "run", "walk", "knock", "call", "bend_down"]
-	}
+	},
+	"orientations" : ["left", "right"]
 }
