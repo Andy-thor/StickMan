@@ -47,6 +47,11 @@ class CustomInstall(install):
         
         # Put the icon path, and save the .desktop file where it should be
         src_desktop = os.path.join(os.getcwd(), "src", self.distribution.get_name().lower() + '.desktop')
+        with open(src_desktop, "r") as file_desktop:
+            content = file_desktop.read()
+            data = content.format(VERSION, self.distribution.get_name(), self.distribution.get_name().lower())
+            with open(src_desktop, "w") as out_file:
+                out_file.write(data) # Override file
         dst_desktop = os.path.join(self._custom_apps_dir)
         src_icon = os.path.join(os.getcwd(), 'src', 'icons', self.distribution.get_name().lower() + '.png')
         shutil.copy(src_desktop, dst_desktop)
