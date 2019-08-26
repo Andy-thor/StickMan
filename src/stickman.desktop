@@ -1,12 +1,12 @@
 [Desktop Entry]
-Version={VERSION}
-Name={APP_NAME}
+Version={0}
+Name={1}
 Comment[en]=It will show a toon walking, running and doing other actions on your desktop.
 Comment[es]=Mostrará a una caricatura caminando, corriendo o realizando otras acciones en tu escritorio.
 GenericName[en]=A little toon that moves on your desktop
 GenericName[es]=Un pequeño personaje que moviéndose en tu escritorio
 Exec=python3 /usr/share/stickman/stickman.py
-Icon={APP_NAME.lower()}
+Icon={2}
 Terminal=false
 Type=Application
 Categories=Game;Others;
