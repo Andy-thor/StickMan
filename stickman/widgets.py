@@ -63,10 +63,10 @@ class Window(Gtk.Window):
             menu_items = Gtk.MenuItem(label)
             self.menu.append(menu_items)
             # When there is an event on the MenuItem (in this case left click)
-            menu_items.connect("activate", self.clicked_item, label)
+            menu_items.connect("activate", self.clicked_item)
             menu_items.show()
         # When there is an event on the toon (in this case right click)
-        self.connect("button_press_event", self.on_clicked, self.menu)
+        self.connect("button_press_event", self.on_clicked)
         self.add(self.fixed)
         self.show_all()
 
@@ -93,13 +93,13 @@ class Window(Gtk.Window):
         self.show()
     
     # This is for capturing events on the widget
-    def on_clicked(self, arg, event, menu): # We don't use 'arg' in this case(Fix)
+    def on_clicked(self, window, event):
         if event.type == Gdk.EventType.BUTTON_PRESS and event.button == 3:
             event.button = 1
-            menu.popup(None, None, None, None, event.button, event.time)
+            window.menu.popup(None, None, None, None, event.button, event.time)
     
-    def clicked_item(self, arg, text): # We don't use 'arg' in this case(Fix)
-        if text == "About...":
+    def clicked_item(self, menu_item):
+        if menu_item.get_label() == "About...":
             about = About(self)
             about.run()
             about.destroy()
