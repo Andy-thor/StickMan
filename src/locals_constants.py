@@ -22,9 +22,15 @@ import os
 APP_NAME = "StickMan"
 VERSION = "0.2.4"
 AUTHOR = 'Andrés Segovia <andy.dev536@gmail.com>'
-DATADIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/')
-DIR_IMAGES = 'src/images/'
-DIR_ICONS = 'src/icons/'
+_parent_dir = os.path.dirname(os.path.abspath(__file__))
+_separator = os.path.sep
+if _parent_dir.split(_separator)[-1] == "src":
+    DATADIR = os.path.join(os.path.dirname(_parent_dir) + '/')
+else:
+    _prefix = "usr"
+    DATADIR = os.path.join(_prefix, "share", APP_NAME.lower() + '/')
+DIR_IMAGES = 'data/images/'
+DIR_ICONS = 'data/icons/'
 TIMEOUT_RATE_FRAMES = 50 # 1 frame/50ms -> 20 fps
 LICENSE = """
 StickMan

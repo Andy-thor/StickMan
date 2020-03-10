@@ -18,11 +18,12 @@
 #
 
 import os
+import sys
 import json
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, GdkPixbuf
-from stickman.locals_constants import *
+from locals_constants import *
 
 colors = {"red": "\033[31m", "green": "\033[32m", "blue": "\033[34m", "none": "\033[0m"}
 
@@ -40,7 +41,7 @@ def load_pixbuf_from_file(path):
 
 def load_data_json(file_name="data_actions.json"):
         try:
-            path_file = os.path.join(DATADIR, 'src', file_name)
+            path_file = os.path.join(DATADIR, 'data', file_name)
             with open(path_file, "r") as file_json:
                 data = file_json.read()
         except IOError:

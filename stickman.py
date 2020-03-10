@@ -19,25 +19,30 @@
 
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+import datetime
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
-from stickman.main import main
-from stickman.locals_constants import VERSION
-
 def show_license():
+    dev_year = 2019
+    current_year = datetime.date.today().year
+    if dev_year != current_year:
+        timelapse = f"{dev_year}-{current_year}"
+    else:
+        timelapse = f"{dev_year}"
     print(
-        "Copyright (C) 2019  Andrés Segovia\n"
-        "This program comes with ABSOLUTELY NO WARRANTY. This is free software, and\n"
-        "you are welcome to redistribute it under certain conditions. See the GNU\n"
-        "General Public License for details.\n"
+        """
+        Copyright (C) {} Andrés Segovia
+        This program comes with ABSOLUTELY NO WARRANTY. This is free software, and
+        you are welcome to redistribute it under certain conditions. See the GNU
+        General Public License for details.
+        """.format(timelapse)
     )
 
 
-def version():
-    print(f"StickMan {VERSION}\n")
+def show_version(version):
+    print(f"StickMan {version}\n")
 
 
 def usage():
@@ -57,13 +62,23 @@ def usage():
 
 
 if __name__ == "__main__":
+    sys.path.pop(0)  # DEBUG
+    current_dir = os.getcwd()
+    listdir = os.listdir(current_dir)
+    if 'data' in listdir and 'src' in listdir:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "src")
+    else:
+        path = os.path.join("usr", "share", "stickman")
+    sys.path.insert(0, path)
+    
     if len(sys.argv) == 2:
         arg = sys.argv[1]
         if arg in ('-h', '--help'):
             usage()
             sys.exit()
         elif arg in ('-v', '--version'):
-            version()
+            from locals_constants import VERSION
+            show_version(version=VERSION)
             sys.exit()
         elif arg in ('-l', '--license'):
             show_license()
@@ -73,5 +88,6 @@ if __name__ == "__main__":
             print("Try \"--help\" to see a list of available command line options")
             sys.exit()
     else:
+        from main import main
         gui = main()
         Gtk.main()

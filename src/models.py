@@ -18,7 +18,7 @@
 #
 
 import random
-import stickman.utils as utils
+import utils as utils
 
 
 class Action(object):

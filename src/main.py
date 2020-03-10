@@ -22,9 +22,9 @@ import sys
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import GObject
-from stickman import locals_constants, utils
-from stickman.widgets import Window
-from stickman.models import Toon
+import locals_constants, utils
+from widgets import Window
+from models import Toon
 
 # Function that will constantly update the objects
 def main_loop(widget, toon):
