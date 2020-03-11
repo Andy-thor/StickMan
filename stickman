@@ -75,15 +75,22 @@ if __name__ == "__main__":
 
     if len(sys.argv) == 2:
         arg = sys.argv[1]
-        if arg in ('-h', '--help'):
+        if arg in ['-h', '--help']:
             usage()
             sys.exit()
-        elif arg in ('-v', '--version'):
+        elif arg in ['-v', '--version']:
             from locals_constants import VERSION
             show_version(version=VERSION)
             sys.exit()
-        elif arg in ('-l', '--license'):
+        elif arg in ['-l', '--license']:
             show_license()
+            sys.exit()
+        elif arg in ['-a', '--about']:
+            from widgets import Window, About
+            window = Window()
+            about = About(window)
+            about.run()
+            about.destroy()
             sys.exit()
         else:
             print("Incorrect option")
