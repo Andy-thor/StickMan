@@ -27,8 +27,8 @@ _separator = os.path.sep
 if _parent_dir.split(_separator)[-1] == "src":
     DATADIR = os.path.join(os.path.dirname(_parent_dir) + '/')
 else:
-    _prefix = "usr"
-    DATADIR = os.path.join(_prefix, "share", APP_NAME.lower() + '/')
+    _prefix = _separator + "usr"
+    DATADIR = os.path.join(_separator, _prefix, "share", APP_NAME.lower() + '/')
 DIR_IMAGES = 'data/images/'
 DIR_ICONS = 'data/icons/'
 TIMEOUT_RATE_FRAMES = 50 # 1 frame/50ms -> 20 fps
