@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
 #
 #  StickMan
@@ -22,57 +22,51 @@ import shutil
 import glob
 from distutils.core import setup
 from distutils.command.install import install
-from stickman.locals_constants import VERSION
+from src.locals_constants import VERSION
 
 
 class CustomInstall(install):
     def run(self):
         install.run(self)
-        # This copy the script and the binary script in their respective destinations
-        src_script = os.path.join(os.getcwd(), self.distribution.get_name().lower() + ".py")
-        script_path = os.path.join(self._custom_data_dir, self.distribution.get_name().lower() + ".py")
-        shutil.copy(src_script, script_path)
-        
-        src_bin = os.path.join(os.getcwd(), "bin", self.distribution.get_name().lower() + ".sh")
-        bin_path = os.path.join(self.prefix, "bin", self.distribution.get_name().lower())
-        shutil.copy(src_bin, bin_path)
-        os.chmod(script_path, 0o755)
-        os.chmod(bin_path, 0o755)
-        
-        # This is a script created by the Setup on /usr/local/bin/
-        # We'll remove it.
-        path_rmv = os.path.join(self.prefix, "local", "bin", 
-                                self.distribution.get_name().lower() + ".py")
-        os.remove(path_rmv)
-        
+        _current_dir = os.getcwd()
         # Put the icon path, and save the .desktop file where it should be
-        src_desktop = os.path.join(os.getcwd(), "src", self.distribution.get_name().lower() + '.desktop')
+        src_desktop = os.path.join(_current_dir, "data", self.distribution.get_name().lower() + '.desktop')
         with open(src_desktop, "r") as file_desktop:
             content = file_desktop.read()
             data = content.format(VERSION, self.distribution.get_name(), self.distribution.get_name().lower())
             with open(src_desktop, "w") as out_file:
-                out_file.write(data) # Override file
+                out_file.write(data)  # Override file
         dst_desktop = os.path.join(self._custom_apps_dir)
-        src_icon = os.path.join(os.getcwd(), 'src', 'icons', self.distribution.get_name().lower() + '.png')
+        src_icon = os.path.join(_current_dir, 'data', 'icons', self.distribution.get_name().lower() + '.png')
         shutil.copy(src_desktop, dst_desktop)
         shutil.copy(src_icon, self._custom_icon_dir)
         
-        # This put the 'src' folder where it should be, in the folder project
-        if not os.path.exists(os.path.join(self._custom_data_dir, 'src', 'icons')):
-            os.makedirs(os.path.join(self._custom_data_dir, 'src', 'icons'))
-        if not os.path.exists(os.path.join(self._custom_data_dir, 'src', 'images')):
-            os.makedirs(os.path.join(self._custom_data_dir, 'src', 'images'))
+        # This put the 'data' folder where it should be, in the folder project
+        if not os.path.exists(os.path.join(self._custom_data_dir, 'data', 'icons')):
+            os.makedirs(os.path.join(self._custom_data_dir, 'data', 'icons'))
+        if not os.path.exists(os.path.join(self._custom_data_dir, 'data', 'images')):
+            os.makedirs(os.path.join(self._custom_data_dir, 'data', 'images'))
         
-        shutil.copy(src_icon, os.path.join(self._custom_data_dir, 'src', 'icons'))
-        images = os.listdir(os.path.join(os.getcwd(), 'src', 'images'))
+        shutil.copy(src_icon, os.path.join(self._custom_data_dir, 'data', 'icons'))
+        images = os.listdir(os.path.join(_current_dir, 'data', 'images'))
         for img in images:
-            shutil.copy(os.path.join(os.getcwd(), 'src', 'images', img), os.path.join(self._custom_data_dir, 'src', 'images'))
+            src_img = os.path.join(_current_dir, 'data', 'images', img)
+            dst_img = os.path.join(self._custom_data_dir, 'data', 'images')
+            shutil.copy(src_img, dst_img)
         
         # This put the JSON file in its corresponding place.
-        src_data_json = os.path.join(os.getcwd(), 'src', 'data_actions.json')
-        dst_data_json = os.path.join(self._custom_data_dir, 'src', 'data_actions.json')
+        src_data_json = os.path.join(_current_dir, 'data', 'data_actions.json')
+        dst_data_json = os.path.join(self._custom_data_dir, 'data', 'data_actions.json')
         shutil.copy(src_data_json, dst_data_json)
         
+        # Copy modules to its destination
+        modules = os.listdir(os.path.join(_current_dir, 'src'))
+        for m in modules:
+            if m.endswith(".py"):
+                src_m = os.path.join(_current_dir, 'src', m)
+                dst_m = self._custom_data_dir
+                shutil.copy(src_m, dst_m)
+
     def finalize_options(self):
         install.finalize_options(self)
         
@@ -96,12 +90,14 @@ class CustomInstall(install):
             os.makedirs(self._custom_apps_dir)
         self._custom_icon_dir = pixmaps_dir
 
-LONG_DESCRIPTION=""" 
-StickMan is a free and open software developed in Python and GTK.
-It shows a toon walking, running and doing other actions on your desktop.
-Still this in development."""
 
-setup(name="StickMan",
+LONG_DESCRIPTION = """ 
+    StickMan is a free and open software developed in Python and GTK.
+    It shows a toon walking, running and doing other actions on your desktop.
+    Still this in development.
+    """
+
+setup(name="StickMan", 
     version=VERSION,
     author="Andrés Segovia",
     author_email="andy.dev536@gmail.com",
@@ -110,10 +106,9 @@ setup(name="StickMan",
     url="https://andy-thor.github.io/StickMan",
     license="GPLv3",
     platforms=["Linux"],
-    packages=["stickman"],
     package_data={
         "src": ["icons/*", "images/stickman-*.png", "data_actions.json", "stickman.desktop"],
     },
-    scripts=["stickman.py"],
-    cmdclass={'install': CustomInstall,},
+    scripts=["stickman"],
+    cmdclass={'install': CustomInstall, },
 )
