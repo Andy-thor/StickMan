@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.5
+- sh script and bin folder removed
+- Added argument --prefix to define the binary path
+- Renamed folder 'stickman' to 'src' and 'src' to 'data'
+- Improved setup.py file
+
 ## v0.2.4
 - Created a module to contain the models.
 - Renamed module 'GUI' to 'widgets' for simplicity.
