@@ -3,8 +3,8 @@
 </div>
 
 <div align="center">
-  <a href="https://andy-thor.github.io/StickMan">StickMan Website</a>
-  <strong>It is a toon being interacting on your desktop.</strong>
+  <a href="https://andy-thor.github.io/StickMan">StickMan</a>
+  <strong> is a toon being interacting on your desktop.</strong>
 </div>
 
 <div align="center">
