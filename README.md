@@ -1,7 +1,9 @@
 <div align="center">
   <h1>StickMan</h1>
 </div>
-![image](https://raw.githubusercontent.com/Andy-thor/StickMan/master/data/images/stickman-jump-right2.png)
+<br>
+![logo](https://raw.githubusercontent.com/Andy-thor/StickMan/master/data/images/stickman-jump-right2.png)
+<br>
 <div align="center">
   <a href="https://andy-thor.github.io/StickMan">StickMan</a>
   <strong> is a toon being interacting on your desktop.</strong>
