@@ -25,6 +25,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
+
 def show_license():
     dev_year = 2019
     current_year = datetime.date.today().year
@@ -74,9 +75,9 @@ if __name__ == "__main__":
     sys.path.pop(0)  # Remove the current directory from the list to not import modules
     current_dir_file = os.path.dirname(os.path.abspath(__file__))
     listdir = os.listdir(current_dir_file)
-    if 'data' in listdir and 'src' in listdir:
+    if 'data' in listdir and 'src' in listdir:  # If we are running the script without installing it
         path = os.path.join(current_dir_file, "src")
-    else:
+    else:                                       # If the script is installed
         _prefix = os.path.sep + "usr"
         path = os.path.join(_prefix, "share", "stickman")
     sys.path.insert(0, path)
