@@ -62,11 +62,11 @@ More information on the installation method is available in the __*INSTALL*__ fi
 
 ## Usage
 
-### Run without install it:
+#### Run without install it:
 ```bash
 python stickman
 ```
-### If it is installed just type:
+#### If it is installed just type:
 ```bash
 stickman
 ```
