@@ -49,10 +49,6 @@ python3-pip gcc gobject-introspection-devel
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the dependencies.
 
 ```bash
-pip install -r requirements.txt
-```
- 
-```bash
 sudo python setup.py install --prefix=/usr
 ```
 or simply if you have installed Make you can run these sentences
