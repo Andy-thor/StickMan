@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.6
+- Added requirements.txt file
+- Added instructions to install dependencies and the app.
+- Added About dialog to consult in the terminal.
+- Fixed bug that when executing the already installed binary from the source code folder it added the wrong path to the PATH.
+
 ## v0.2.5
 - sh script and bin folder removed
 - Added argument --prefix to define the binary path
