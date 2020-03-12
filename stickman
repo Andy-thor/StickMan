@@ -62,6 +62,14 @@ def usage():
             "Show the type of license of this software"))
 
 
+def show_about():
+    from widgets import Window, About
+    window = Window()
+    about = About(window)
+    about.run()
+    about.destroy()
+
+
 if __name__ == "__main__":
     sys.path.pop(0)  # Remove the current directory from the list to not import modules
     current_dir_file = os.path.dirname(os.path.abspath(__file__))
@@ -86,11 +94,7 @@ if __name__ == "__main__":
             show_license()
             sys.exit()
         elif arg in ['-a', '--about']:
-            from widgets import Window, About
-            window = Window()
-            about = About(window)
-            about.run()
-            about.destroy()
+            show_about()
             sys.exit()
         else:
             print("Incorrect option")
