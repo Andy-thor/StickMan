@@ -46,12 +46,12 @@ python3-pip gcc gobject-introspection-devel
 <br><br>
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the dependencies.
+You can install the app typing next sentences:
 
 ```bash
 sudo python setup.py install --prefix=/usr
 ```
-or simply if you have installed Make you can run these sentences
+or simply if you have installed _Make_ you can run these sentences:
 ```bash
 sudo make install
 ```
