@@ -64,10 +64,10 @@ def usage():
 
 if __name__ == "__main__":
     sys.path.pop(0)  # Remove the current directory from the list to not import modules
-    current_dir = os.getcwd()
-    listdir = os.listdir(current_dir)
+    current_dir_file = os.path.dirname(os.path.abspath(__file__))
+    listdir = os.listdir(current_dir_file)
     if 'data' in listdir and 'src' in listdir:
-        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "src")
+        path = os.path.join(current_dir_file, "src")
     else:
         _prefix = os.path.sep + "usr"
         path = os.path.join(_prefix, "share", "stickman")
