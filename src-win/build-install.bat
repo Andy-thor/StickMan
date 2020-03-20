@@ -30,13 +30,8 @@ for /f  %%a in (%_file%) do (
 
 set f_keep_tmp=.keep-tmp
 set home=%DIR_MSYS%\home\%USERNAME%
-REM set loop_proc=while [[ $(ps -ef | grep "pacman -S") != "" ]] ; do var=""; done
-REM set cmd_update="rm -f %f_keep_tmp%; touch %f_keep_tmp%; pacman -Syu --ignore pacman %ignore_conf% 2>&1; rm %f_keep_tmp%; exit"
-REM set cmd_update="touch %f_keep_tmp%; pacman -Syu %ignore_conf% 2>&1; sleep 3; rm -f %f_keep_tmp%; exit"
 set cmd_update=pacman -Syu %ignore_conf% 2>&1; sleep 3
-REM set cmd_install_pkgs="rm -f %f_keep_tmp%; touch %f_keep_tmp%; pacman -S %ignore_conf% %filecontent%; rm %f_keep_tmp%; exit"
 set cmd_install_pkgs="touch %f_keep_tmp%; pacman -S --needed %ignore_conf% %filecontent% 2>&1; sleep 10; rm %f_keep_tmp%; exit"
-REM set msysshell=msys2_shell.cmd
 set bashshell=usr\bin\bash.exe
 set pathshell=%DIR_MSYS%\%bashshell%
 if not exist %pathshell% (
@@ -90,8 +85,3 @@ exit /b 0
 :failed
 echo *** FAILED ***
 exit /b %EXIT_STATUS%
-
-
-
-REM pacman -Syu --ignore pacman
-REM pacman -Su --ignore pacman --force
