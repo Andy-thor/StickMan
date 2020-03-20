@@ -8,7 +8,7 @@
 #define MsysInstaller "msys2-x86_64-20190524.exe"
 #define ScriptPreBuild "download-msys.bat"
 #define BuildInstaller "build-install.bat"
-#define RequirementsWin "requirements-win.txt"
+#define RequirementsWin "packages-dep.txt"
 #define DescApp "A little toon that moves on your desktop"
 
 [Setup]
@@ -45,7 +45,7 @@ Source: "src-win\run.cmd"; DestDir: "{app}"; Flags: ignoreversion
 Source: "src-win\run.vbs"; DestDir: "{app}"; Flags: ignoreversion
 Source: "src-win\{#ScriptPreBuild}"; Flags: dontcopy
 Source: "src-win\{#BuildInstaller}"; Flags: dontcopy
-Source: "src-win\requirements-win.txt"; Flags: dontcopy noencryption
+Source: "src-win\{#RequirementsWin}"; Flags: dontcopy noencryption
 Source: "src\*"; DestDir: "{app}\src"
 Source: "data\*"; DestDir: "{app}\data"
 Source: "data\icons\*"; DestDir: "{app}\data\icons"

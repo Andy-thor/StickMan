@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.3.1
+- Added support for Windows.
+
 ## v0.2.6
 - Added requirements.txt file
 - Added instructions to install dependencies and the app.

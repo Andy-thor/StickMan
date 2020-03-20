@@ -17,7 +17,7 @@ REM Download and installation of its dependencies
 set filecontent=
 set ignore_conf=--noconfirm
 set CURRENT_SCRIPT_DIR=%~dp0
-set _file=%CURRENT_SCRIPT_DIR%requirements-win.txt
+set _file=%CURRENT_SCRIPT_DIR%packages-dep.txt
 
 if not exist %_file% (
     EXIT_STATUS=3
