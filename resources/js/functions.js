@@ -2,6 +2,11 @@ var devYear = 2019;
 var latestVersion = "0.3.1";
 var developerFullName = "Andrés Segovia";
 
+function getLanguage() {
+	lang_region = navigator.language;
+	return lang = lang_region.substring(0, 2);
+}
+
 function generateTextCopyright() {
 	var currentYear = new Date();
 	var strTime = "";
@@ -15,23 +20,37 @@ function generateTextCopyright() {
 }
 
 function generateButtonDownload() {
-	var nameFile = "";
-	var sizeFile = "";
 	var currentOS = getOS();
-	var urlDownload = "https://codeload.github.com/Andy-thor/StickMan/zip/master";
+	var objDownSpec = new Object();
+	var lang = getLanguage();
+
 	if (currentOS === "Windows") {
-		nameFile = "stickman-0.3.1.exe";
-		sizeFile = "1.9 MB";
-		urlDownload = "https://github.com/Andy-thor/StickMan/releases/download/v0.3.1/stickman-0.3.1.exe";
+		objDownSpec.fileName = "stickman-0.3.1.exe";
+		objDownSpec.fileSize = "1.9 MB";
+		objDownSpec.urlDownload = "https://github.com/Andy-thor/StickMan/releases/download/v0.3.1/stickman-0.3.1.exe";
 	} else {
-		nameFile = "StickMan-master.zip";
-		sizeFile = "483 kB";
+		objDownSpec.fileName = "StickMan-master.zip";
+		objDownSpec.fileSize = "483 kB";
+		objDownSpec.urlDownload = "https://codeload.github.com/Andy-thor/StickMan/zip/master";
 	}
-	$("#details-download-file").html(
-		"<p><span id='name-file' class='bold-text'>Name file:</span> " + nameFile + "</p>" +
-		"<p><span id='size-file' class='bold-text size-bytes'>Size:</span> " + sizeFile + "</p>" +
-		"<p><span id='platform' class='bold-text'>OS supported:</span> " + currentOS + "</p>");
-	$("a.button-download").html("<a href='" + urlDownload + "'>Download StickMan V" + latestVersion + "</a>");
+	var objDownLabel = new Object();
+	if (lang == "es") {
+		objDownLabel.name = "Nombre de archivo";
+		objDownLabel.size = "Tamaño de archivo";
+		objDownLabel.textDownload = "Descargar StickMan V" + latestVersion;
+		objDownLabel.platform = "Plataforma soportada";
+	} else {
+		objDownLabel.name = "Filename";
+		objDownLabel.size = "File size";
+		objDownLabel.platform = "Supported platform";
+		objDownLabel.textDownload = "Download StickMan V" + latestVersion;
+	}
+
+	$("a.button-download").attr("href", objDownSpec.urlDownload);
+	$("a.button-download").html(objDownLabel.textDownload);
+	$(".body-spec p#file-name").html("<span class='bold-text'>"+ objDownLabel.name + ":</span> " + objDownSpec.fileName);
+	$(".body-spec p#file-size").html("<span class='bold-text size-bytes'>" + objDownLabel.size + ":</span> " + objDownSpec.fileSize);
+	$(".body-spec p#platform").html("<span class='bold-text'>" + objDownLabel.platform + ":</span> " + currentOS);
 }
 
 function collapsibleButton() {
@@ -54,12 +73,12 @@ function collapsibleButton() {
 function configureEffects() {
 	showSlidesAutomatically();
 	collapsibleButton();
-	generateButtonDownload();
 }
 
 function init() {
 	configureEffects();
 	generateTextCopyright();
+	generateButtonDownload();
 }
 
 function getOS() {
