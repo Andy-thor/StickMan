@@ -2,6 +2,7 @@
   <h1>StickMan</h1>
 </div>
 
+<br>
 <div align="center">
   <a href="https://andy-thor.github.io/StickMan">StickMan</a>
   <strong> is a toon being interacting on your desktop.</strong>
@@ -46,12 +47,12 @@ python3-pip gcc gobject-introspection-devel
 <br><br>
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the dependencies.
+You can install the app typing next sentences:
 
 ```bash
 sudo python setup.py install --prefix=/usr
 ```
-or simply if you have installed Make you can run these sentences
+or simply if you have installed _Make_ you can run these sentences:
 ```bash
 sudo make install
 ```
@@ -61,11 +62,11 @@ More information on the installation method is available in the __*INSTALL*__ fi
 
 ## Usage
 
-### Run without install it:
+#### Run without install it:
 ```bash
 python stickman
 ```
-### If it is installed just type:
+#### If it is installed just type:
 ```bash
 stickman
 ```
