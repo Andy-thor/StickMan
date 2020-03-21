@@ -4,10 +4,10 @@
 	<meta charset=”utf-8”>
 	<title>redirect...</title>
 	<link rel="shortcut icon" href="../resources/icon/favicon.ico">
+	<script src="resources/js/functions.js"></script>
 	
 	<script>
-		lang_region = navigator.language;
-		lang = lang_region.substring(0, 2);
+		lang = getLanguage();
 		if (lang == "es") {
 			window.location="es/index.html";
 		} else {
