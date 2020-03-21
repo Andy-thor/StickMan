@@ -1,4 +1,5 @@
 var devYear = 2019;
+var latestVersion = "0.3.1";
 var developerFullName = "Andrés Segovia";
 
 function generateTextCopyright() {
@@ -30,7 +31,7 @@ function generateButtonDownload() {
 		"<p><span id='name-file' class='bold-text'>Name file:</span> " + nameFile + "</p>" +
 		"<p><span id='size-file' class='bold-text size-bytes'>Size:</span> " + sizeFile + "</p>" +
 		"<p><span id='platform' class='bold-text'>OS supported:</span> " + currentOS + "</p>");
-	$("a.button-download").html("<a href='" + urlDownload + "'>Download StickMan V0.3.1 para Linux</a>");
+	$("a.button-download").html("<a href='" + urlDownload + "'>Download StickMan V" + latestVersion + "</a>");
 }
 
 function collapsibleButton() {
