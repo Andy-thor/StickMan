@@ -7,7 +7,7 @@ function generateTextCopyright() {
 	if (devYear === currentYear.getFullYear()) {
 		strTimeLapse = devYear.toString();
 	} else {
-		strTimeLapse = devYear.toString() + "-" + currentYear.toString();
+		strTimeLapse = devYear.toString() + "-" + currentYear.getFullYear().toString();
 	}
 
 	$("#owner").html("Copyright &copy; " + strTimeLapse + "<br>" + developerFullName);
