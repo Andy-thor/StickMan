@@ -24,10 +24,10 @@
 *1*. Instalar los siguientes paquetes dependiendo de tu distribución(Linux).
 | Distro                                   | Comando  |
 |----------------------------------------|:-------------|
-| ___Ubuntu / Debian___ | _sudo apt install libgirepository1.0-dev gcc libcairo2-dev make pkg-config python3-dev gir1.2-gtk-3.0_ |
-| ___Fedora___ | _sudo dnf install gcc gobject-introspection-devel cairo-devel make pkg-config python3-devel gtk3_ |
-| ___Arch Linux___ | _sudo pacman -S python cairo pkgconf gobject-introspection gtk3 make_ |
-| ___openSUSE___ | _sudo zypper install cairo-devel make pkg-config python3-devel gcc gobject-introspection-devel_ |
+| ![ubuntu-icon]___Ubuntu/Debian___ | _sudo apt install libgirepository1.0-dev gcc libcairo2-dev make pkg-config python3-dev gir1.2-gtk-3.0_ |
+| ![fedora-icon]___Fedora___ | _sudo dnf install gcc gobject-introspection-devel cairo-devel make pkg-config python3-devel gtk3_ |
+| ![arch-icon]___Arch Linux___ | _sudo pacman -S python cairo pkgconf gobject-introspection gtk3 make_ |
+| ![opensuse-icon]___openSUSE___ | _sudo zypper install cairo-devel make pkg-config python3-devel gcc gobject-introspection-devel_ |
 
 *2*. Usa el gestor de paquetes [pip] para instalar las dependencias restantes(Linux y __macOS__?). Esto no funciona en Windows.
 ```bash
@@ -62,3 +62,7 @@ stickman
 ```
 
 [pip]: https://pip.pypa.io/en/stable/
+[ubuntu-icon]: https://www.iconfinder.com/icons/4375122/download/png/16
+[fedora-icon]: https://www.iconfinder.com/icons/386460/download/png/16
+[arch-icon]: https://www.iconfinder.com/icons/386451/download/png/16
+[opensuse-icon]: https://www.iconfinder.com/icons/386483/download/png/16
