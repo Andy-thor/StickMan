@@ -29,7 +29,7 @@
 | ![arch-icon]___Arch Linux___ | _sudo pacman -S python cairo pkgconf gobject-introspection gtk3 make_ |
 | ![opensuse-icon]___openSUSE___ | _sudo zypper install cairo-devel make pkg-config python3-devel gcc gobject-introspection-devel_ |
 
-*2*. Use the package manager [pip] to install the remaining dependencies(Linux and __macOS__?). This does not work in Windows.
+*2*. Use the package manager [pip] to install the remaining dependencies(Linux and __macOS__?). <br> :warning: This does not work in Windows.
 ```bash
 pip install -r requirements.txt
 ```
