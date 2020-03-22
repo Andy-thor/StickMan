@@ -13,7 +13,7 @@
 </div>
 
 <div align="center">
-  <strong>If you are a Windows user you have the possibility to download the <a href="https://github.com/Andy-thor/StickMan/releases/download/v0.3.1/stickman-0.3.1.exe">installer</a></strong> 
+  <strong>If you are a Windows <img src="https://www.iconfinder.com/icons/386480/download/png/16" alt="Windows icon"> user you have the possibility to download the <a href="https://github.com/Andy-thor/StickMan/releases/download/v0.3.1/stickman-0.3.1.exe">installer</a></strong> 
 </div>
 
 <br>
