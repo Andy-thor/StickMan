@@ -9,7 +9,7 @@
 </div>
 
 <div align="center">
-  StickMan is a free software developed in Python and GTK for the Linux systems.
+  StickMan is a free software developed in Python and GTK for the Linux, Windows and macOS systems.
 </div>
 
 <div align="center">
@@ -18,9 +18,11 @@
 
 <br>
 
+*Read this in other languages: [English](README.md), [Espanish](README.es.md).*
+
 ## Prerequirements
 *1*. Install the following packages depending on your distro(Linux).
-| Ruta                                   | Descripción  |
+| Distro                                   | Command  |
 |----------------------------------------|:-------------|
 | ___Ubuntu / Debian___ | _sudo apt install libgirepository1.0-dev gcc libcairo2-dev make pkg-config python3-dev gir1.2-gtk-3.0_ |
 | ___Fedora___ | _sudo dnf install gcc gobject-introspection-devel cairo-devel make pkg-config python3-devel gtk3_ |
@@ -59,4 +61,3 @@ stickman
 ```
 
 [pip]: https://pip.pypa.io/en/stable/
-[installer]: https://github.com/Andy-thor/StickMan/releases/download/v0.3.1/stickman-0.3.1.exe
