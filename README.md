@@ -12,38 +12,23 @@
   StickMan is a free software developed in Python and GTK for the Linux systems.
 </div>
 
+#### ___If you are a Windows user you have the possibility to download the [installer]___
 
 <br><br>
 
 ## Prerequirements
-*1*. Use the package manager [pip] to install the dependencies.
+*1*. Install the following packages depending on your distro(Linux).
+| Ruta                                   | Descripción  |
+|----------------------------------------|:-------------|
+| ___Ubuntu / Debian___ | _sudo apt install libgirepository1.0-dev gcc libcairo2-dev make pkg-config python3-dev gir1.2-gtk-3.0_ |
+| ___Fedora___ | _sudo dnf install gcc gobject-introspection-devel cairo-devel make pkg-config python3-devel gtk3_ |
+| ___Arch Linux___ | _sudo pacman -S python cairo pkgconf gobject-introspection gtk3 make_ |
+| ___openSUSE___ | _sudo zypper install cairo-devel make pkg-config python3-devel gcc gobject-introspection-devel_ |
+
+*2*. Use the package manager [pip] to install the remaining dependencies(Linux and __macOS__?). This does not work in Windows.
 ```bash
 pip install -r requirements.txt
 ```
-*2*. Install the following packages depending on your system.
-
-___Ubuntu / Debian___:
-```bash
-sudo apt install libgirepository1.0-dev gcc libcairo2-dev make \
-pkg-config python3-dev python3-pip gir1.2-gtk-3.0
-```
-___Fedora___:
-```bash
-sudo dnf install gcc gobject-introspection-devel cairo-devel \
-make pkg-config python3-devel python3-pip gtk3
-```
-
-___Arch Linux___:
-```bash
-sudo pacman -S python python3-pip cairo pkgconf \
-gobject-introspection gtk3 make
-```
-___openSUSE___:
-```bash
-sudo zypper install cairo-devel make pkg-config python3-devel \
-python3-pip gcc gobject-introspection-devel
-```
-
 <br><br>
 ## Installation
 
@@ -72,3 +57,4 @@ stickman
 ```
 
 [pip]: https://pip.pypa.io/en/stable/
+[installer]: https://github.com/Andy-thor/StickMan/releases/download/v0.3.1/stickman-0.3.1.exe
