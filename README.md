@@ -33,7 +33,8 @@
 ```bash
 pip install -r requirements.txt
 ```
-<br><br>
+<br>
+
 ## Installation
 
 You can install the app typing next sentences:
