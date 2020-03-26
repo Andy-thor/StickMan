@@ -1,0 +1,47 @@
+{
+	"project-name": "StickMan",
+	"developer": "andy-thor",
+	"version": "0.3.1",
+	"latest-release": {
+		"exe": {
+			"filename": "{project-name}-{version}.exe",
+			"filesize": "1.8 MB",
+			"url": "https://github.com/{developer}/{project-name}/releases/download/{version}/{filename}"
+		},
+		"zipball": {
+			"filename": "{project-name}-{version}.zip",
+			"filesize": "482 KB",
+			"url": "https://codeload.github.com/{developer}/{project-name}/zip/v{version}"
+		},
+		"tarball": {
+			"filename": "{project-name}-{version}.tar.gz",
+			"filesize": "428 KB",
+			"url": "https://github.com/{developer}/{project-name}/archive/v{version}.tar.gz"
+		},
+		"src": {
+			"filename": "{project-name}-master.zip",
+			"filesize": "484 KB",
+			"url": "https://codeload.github.com/{developer}/{project-name}/zip/master"
+		}
+	},
+	"text": {
+		"labels-spec": {
+			"filename": [
+				"Filename", 
+				"Nombre de archivo"
+			],
+			"filesize": [
+				"File size",
+				"Tamaño de archivo"
+			],
+			"platform": [
+				"Supported platform",
+				"Plataforma soportada"
+			],
+			"download": [
+				"Download {project-name} V{version}",
+				"Descargar {project-name} V{version}"
+			]
+		}
+	}
+}
