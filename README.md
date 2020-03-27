@@ -18,7 +18,7 @@
 
 <br>
 
-*Read this in other languages: [English](README.md), [Espanish](README.es.md).*
+*Read this in other languages: [English](README.md), [Spanish](README.es.md).*
 
 ## Prerequirements
 *1*. Install the following packages depending on your distro(Linux).
