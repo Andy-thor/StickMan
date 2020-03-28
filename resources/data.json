@@ -6,7 +6,7 @@
 		"exe": {
 			"filename": "{project-name}-{version}.exe",
 			"filesize": "1.8 MB",
-			"url": "https://github.com/{developer}/{project-name}/releases/download/{version}/{filename}"
+			"url": "https://github.com/{developer}/{project-name}/releases/download/v{version}/{filename}"
 		},
 		"zipball": {
 			"filename": "{project-name}-{version}.zip",
