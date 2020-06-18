@@ -4,7 +4,7 @@
 
 <br>
 <div align="center">
-  <a href="https://andy-thor.github.io/StickMan">StickMan</a>
+  <a href="https://andy-thor.github.io/stickman">StickMan</a>
   <strong> is a toon being interacting on your desktop.</strong>
 </div>
 
@@ -13,7 +13,7 @@
 </div>
 
 <div align="center">
-  <strong>If you are a Windows <img src="https://www.iconfinder.com/icons/386480/download/png/16" alt="Windows icon"> user you have the possibility to download the <a href="https://github.com/Andy-thor/StickMan/releases/download/v0.3.1/stickman-0.3.1.exe">installer</a></strong> 
+  <strong>If you are a Windows <img src="https://www.iconfinder.com/icons/386480/download/png/16" alt="Windows icon"> user you have the possibility to download the <a href="https://github.com/Andy-thor/stickman/releases/download/v0.3.1/stickman-0.3.1.exe">installer</a></strong> 
 </div>
 
 <br>
